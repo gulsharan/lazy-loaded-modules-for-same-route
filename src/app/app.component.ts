@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { AuthService, IUser } from './services/auth.service';
 
 @Component({
@@ -9,14 +8,15 @@ import { AuthService, IUser } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  loading$: Observable<boolean>;
+  user$: Observable<IUser>;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.loading$ = this.authService.user$.pipe(
-      map((user) => !user),
-      startWith(true)
-    );
+    this.user$ = this.authService.user$;
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }
