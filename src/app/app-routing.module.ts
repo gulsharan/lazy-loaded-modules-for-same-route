@@ -23,7 +23,6 @@ const routes: Routes = [
     path: 'dashboard',
     component: LayoutComponent,
     canActivate: [DashboardAuthGuard],
-    canActivateChild: [DashboardAuthGuard],
     loadChildren: () =>
       appInjector.pipe(
         map((injector) => injector.get(AuthService)),
