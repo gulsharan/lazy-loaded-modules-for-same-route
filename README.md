@@ -49,23 +49,31 @@ const routes: Routes = [
     component: LayoutComponent,
     canActivate: [DashboardAuthGuard], // block this route if user is not logged-in
     loadChildren: () =>
+    
       // Use the appInjector subject
       appInjector.pipe(
+        
         // ...to get a handle to your AuthService
         map((injector) => injector.get(AuthService)),
+        
         // ...then switch to a new observable
         switchMap((authService) => {
+          
           // ...that uses authService to retrieve the logged-in user
           return authService.user$.pipe(
+            
             // ...then switches again, this time to actually lazy-load a feature module
             switchMap((user) => {
+              
               // ...but first let's check the user's role
               switch (user.role) {
+                
                 // ...and load Admin Feature Module if user.role is 'admin'
                 case "admin":
                   return import(
                     "./modules/admin-dashboard/admin-dashboard.module"
                   ).then((m) => m.AdminDashboardModule);
+                
                 // ...or load User Feature Module if user.role is 'user'
                 case "user":
                   return import(
