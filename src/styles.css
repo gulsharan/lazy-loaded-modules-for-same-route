@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+h1 {
+  color: white;
+  background-color: rgba(50, 100, 200, 1);
+  padding: 1em;
+  margin: 0;
+}
+h1.admin {
+  background-color: rgba(200, 70, 50, 1);
+}
+button {
+  margin: 1em;
+  padding: 1em 2em;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: .75em;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: #999;
+}
+button:hover, button:focus {
+  background-color: rgba(50, 100, 200, 1);
+  box-shadow: 0 .5em .5em rgba(0,0,0,.3);
+  transition-duration: .2s;
+}
+button:focus {
+  outline: 0;
+}
+button.admin:hover {
+  background-color: rgba(200, 70, 50, 1);
+  box-shadow: 0 .5em .5em rgba(0,0,0,.3);
+  transition-duration: .2s;
+}
+button.signout {
+  position: fixed;
+  top: .5em;
+  right: 1em;
+  color: rgba(50, 50, 50, 1);
+  background-color: white;
+}
+button.signout:hover {
+  background-color: white;
+}

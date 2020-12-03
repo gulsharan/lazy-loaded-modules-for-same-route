@@ -26,8 +26,6 @@ export class AuthService {
   }
 
   logout(): void {
-    this.user$.next(null);
-    this.loggedIn$.next(false);
     location.href = '/login'; // reload the page after sign out to ensure lazy-loaded module gets unloaded
   }
 }
