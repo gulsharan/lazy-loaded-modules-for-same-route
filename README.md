@@ -4,7 +4,7 @@
 
 Occasionally you will get into a scenario where you want the user to land on the same route, but lazy-load a different module based on some conditions like permissions, user role, etc. I created this repo to document the solution I came up with to conditionally lazy-load Angular feature modules for the same route.
 
-## Demo
+## Demo - [Stackblitz](https://stackblitz.com/github/gulsharan/lazy-loaded-modules-for-same-route)
 
 ![Preview](Preview.gif)
 
